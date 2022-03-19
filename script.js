@@ -11,6 +11,12 @@ const section1 = document.querySelector('#section--1');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const nav = document.querySelector('.nav');
 const navHeight = nav.getBoundingClientRect().height;
+const message = document.createElement('div');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+const allSections = document.querySelectorAll('.section');
+const imageTarget = document.querySelectorAll('img[data-src]');
 
 const openModal = function (e) {
   e.preventDefault();
@@ -36,7 +42,6 @@ document.addEventListener('keydown', function (e) {
 
 // Cookie Section
 
-const message = document.createElement('div');
 message.classList.add('cookie-message');
 message.innerHTML =
   'We use cookies for improving functionality and analytics. <button class="btn btn--close-cookie">Got It!<button/>';
@@ -65,10 +70,6 @@ btnScrollTo.addEventListener('click', () => {
 });
 
 // Tabbed components
-
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
 
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
@@ -119,7 +120,6 @@ headerObserver.observe(header);
 
 // Reveal Section
 
-const allSections = document.querySelectorAll('.section');
 const revealSection = (entries, observer) => {
   const [enrty] = entries;
   if (!enrty.isIntersecting) return;
@@ -139,7 +139,6 @@ allSections.forEach(section => {
 
 //  Image Lazy loading
 
-const imageTarget = document.querySelectorAll('img[data-src]');
 const loadImg = (entries, observer) => {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
