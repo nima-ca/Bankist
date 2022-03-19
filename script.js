@@ -134,7 +134,7 @@ const sectionObservor = new IntersectionObserver(revealSection, {
 
 allSections.forEach(section => {
   sectionObservor.observe(section);
-  // section.classList.add('section--hidden');
+  section.classList.add('section--hidden');
 });
 
 //  Image Lazy loading
@@ -146,7 +146,7 @@ const loadImg = (entries, observer) => {
   entry.target.addEventListener('load', () => {
     entry.target.classList.remove('lazy-img');
   });
-  observer.unobserve(enrty.target);
+  observer.unobserve(entry.target);
 };
 
 const imageObserver = new IntersectionObserver(loadImg, {
